@@ -178,7 +178,7 @@ Database: resource_allocation
 
 **1. Database/tables**
 
-<img src="Screenshot 2026-10-24 011641.png" width="500" height = "500">
+<img src="Screenshot 2026-10-24 011641.png" width="600" height = "500">
 
 **2. Employee data**
 
