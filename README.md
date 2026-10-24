@@ -22,19 +22,19 @@ The core business rules are implemented in the Java backend, while the AI layer 
 
 ## 2. Technology Stack
 
-| Layer | Technology 
-|---|---|---|
-| **Backend** | Java 17+ 
-| **Framework** | Spring Boot 3.2.5 
-| **Persistence** | Spring Data JPA, Hibernate 6 
-| **Database** | MySQL 8.x 
-| **Migrations** | Flyway 9.22 
-| **Frontend** | HTML5, CSS3, JavaScript
-| **Testing** | JUnit 5, Mockito, Spring Boot Integration Tests
-| **Build Tool** | Maven Wrapper 
-| **Version Control** | Git 
-| **AI Capability** |  Agentic AI simulation with controlled backend workflows
-
+```
+| Layer | Technology |
+|---|---|
+| Backend | Java 17, Spring Boot 3.2.5 |
+| Persistence | Spring Data JPA, Hibernate |
+| Database | MySQL 8 |
+| Database Migration | Flyway |
+| Frontend | HTML5, CSS3, Vanilla JavaScript (ES6) |
+| Testing | JUnit 5, Mockito, Spring Boot Integration Tests |
+| Build | Maven Wrapper |
+| Version Control | Git |
+| AI | Agentic AI simulation with controlled backend workflows |
+```
 ---
 
 ## 3. Architecture
@@ -42,25 +42,22 @@ The core business rules are implemented in the Java backend, while the AI layer 
 The system follows a layered architecture where business rules and capacity governance are strictly enforced by Java backend services:
 
 ```text
-[ Browser Web UI ] (Port 5500)
+Browser / Frontend
        |
-       | HTTP / REST (JSON)
+       | HTTP / REST
        v
-[ REST Controllers ] (Port 8080: /api/demands, /api/employees, /api/allocations, /api/reports, /api/ai)
-       |
-       v
-[ Service Layer ] <-----------> [ Agentic AI Layer ]
-  - DemandService                 - AgentSimulationService
-  - AllocationService             - Controlled Tool Execution
-  - RecommendationService         - Transparent Reasoning & Evidence
-  - EmployeeService               - Human Approval Gate
-  - ReportService
+REST Controllers
        |
        v
-[ JPA Repositories ] (Spring Data JPA queries & Native SQL aggregations)
+Service Layer
+       |
+       +---- Recommendation / AI Staffing Workflow
        |
        v
-[ MySQL Database ] (Port 3306: resource_allocation)
+JPA Repositories
+       |
+       v
+MySQL Database
 ```
 
 **AI Workflow Placement**: The AI Staffing Assistant operates as an orchestration layer above core Java services. It invokes controlled backend tools to retrieve live database facts, evaluates candidates against established business rules, and requires human authorization before any allocation is committed.
