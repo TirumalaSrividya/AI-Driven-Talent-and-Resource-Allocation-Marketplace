@@ -22,19 +22,18 @@ The core business rules are implemented in the Java backend, while the AI layer 
 
 ## 2. Technology Stack
 
-```
-| Layer | Technology |
-|---|---|
-| Backend | Java 17, Spring Boot 3.2.5 |
-| Persistence | Spring Data JPA, Hibernate |
-| Database | MySQL 8 |
-| Database Migration | Flyway |
-| Frontend | HTML5, CSS3, Vanilla JavaScript (ES6) |
-| Testing | JUnit 5, Mockito, Spring Boot Integration Tests |
-| Build | Maven Wrapper |
-| Version Control | Git |
-| AI | Agentic AI simulation with controlled backend workflows |
-```
+| Layer              | Technology                                              |
+| ------------------ | ------------------------------------------------------- |
+| Backend            | Java 17, Spring Boot 3.2.5                              |
+| Persistence        | Spring Data JPA, Hibernate                              |
+| Database           | MySQL 8                                                 |
+| Database Migration | Flyway                                                  |
+| Frontend           | HTML5, CSS3, Vanilla JavaScript (ES6)                   |
+| Testing            | JUnit 5, Mockito, Spring Boot Integration Tests         |
+| Build              | Maven Wrapper                                           |
+| Version Control    | Git                                                     |
+| AI                 | Agentic AI simulation with controlled backend workflows |
+
 ---
 
 ## 3. Architecture
