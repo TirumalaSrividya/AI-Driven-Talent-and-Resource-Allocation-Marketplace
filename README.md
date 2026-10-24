@@ -242,8 +242,6 @@ CREATE DATABASE resource_allocation;
 
 Configure the MySQL connection in the backend application properties.
 
-Flyway applies the database migrations when the backend starts.
-
 ### 2. Start Backend
 
 
@@ -308,8 +306,7 @@ BUILD SUCCESS
 
 The project includes an Agentic AI staffing workflow implemented as a controlled simulation.
 
-
-### AI Workflow
+**AI Workflow**
 ```
 Staffing Request
       ↓
