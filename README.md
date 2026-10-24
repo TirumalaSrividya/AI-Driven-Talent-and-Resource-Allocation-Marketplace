@@ -176,11 +176,17 @@ Database: resource_allocation
 - `training_recommendations`
 - `audit_log`
 
-<img src="Screenshot 2026-10-24 011641.png" width="400">
+**1. Database/tables**
 
-<img src="Screenshot 2026-10-24 011714.png" width="400">
+<img src="Screenshot 2026-10-24 011641.png" width="700" height = "700">
 
-<img src="Screenshot 2026-10-24 011849.png" width="400">
+**2. Employee data**
+
+<img src="Screenshot 2026-10-24 011714.png" width="700" height = "700">
+
+**3. Project demand data**
+
+<img src="Screenshot 2026-10-24 011849.png" width="700" height = "700">
 
 
 ### Database Migrations
@@ -210,10 +216,10 @@ The project uses synthetic seed data for employees, skills, demands, and related
 ### Queries
 
 **Employees Grouped by Department**
-<img src="Screenshot 2026-10-24 165307.png" width="400">
+<img src="Screenshot 2026-10-24 165307.png" width="700" height = "700">
 
 **Resources Grouped by Skill and Proficiency**
-<img src="Screenshot 2026-10-24 012204.png" width="400">
+<img src="Screenshot 2026-10-24 012204.png" width="400" height = "700">
 
 ---
 
