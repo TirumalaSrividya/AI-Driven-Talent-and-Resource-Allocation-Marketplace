@@ -160,18 +160,13 @@ Allocations use a pending/approval flow before becoming active.
 
 Capacity is rechecked when an allocation is approved.
 
-### Missing Data
+ ### Missing Data
 
 The AI workflow uses available stored information. Missing skill or availability information is reported rather than invented.
+
 ---
 
-
-
 ## 7. Database
-
-## 7. Database
-
-The application uses **MySQL 8**.
 
 ```text
 Database: resource_allocation
