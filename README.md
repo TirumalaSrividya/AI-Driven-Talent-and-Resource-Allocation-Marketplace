@@ -139,7 +139,7 @@ A candidate missing a mandatory skill is not considered eligible.
 - Conflicting allocations are rejected by the backend business logic.
 
 ### Candidate Scoring
-- Candidate scores are calculated using four weighted factors:
+Candidate scores are calculated using four weighted factors:
 
 ```text
 Score =
@@ -148,7 +148,7 @@ Score =
   + 15% Location Fit
   + 15% Experience
 ```
-- The scoring factors are calculated from stored employee, skill, demand, and allocation data.
+The scoring factors are calculated from stored employee, skill, demand, and allocation data.
 
 ### Approval
 - Allocations use a pending/approval flow before becoming active.
