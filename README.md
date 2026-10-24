@@ -113,11 +113,11 @@ MySQL Database
 
 A demand must contain the following valid fields:
 
-- **Project name**
-- **Role**
-- **Start date**
-- **End date**
-- **Allocation percentage** between 1% and 100%
+- Project name
+- Role
+- Start date
+- End date
+- Allocation percentage between 1% and 100%
 
 The end date cannot be earlier than the start date.
 
