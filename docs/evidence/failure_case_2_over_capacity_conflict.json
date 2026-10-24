@@ -1,0 +1,1 @@
+﻿{"code":"ALLOCATION_CONFLICT","message":"Allocation would exceed capacity limit. Current: 100%, Requested: 100%, Total would be: 200% (max: 100%)","fieldErrors":null,"timestamp":"2026-10-21T12:29:36.0588464"}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AI-Driven Talent and Resource Allocation Marketplace — Match employees to project demands intelligently">
+    <title>TalentAI — Resource Allocation Marketplace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon">⚡</div>
+            <span class="logo-text">TalentAI</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link active" data-screen="dashboard" id="nav-dashboard">
+                    <span class="nav-icon">📊</span><span>Dashboard</span>
+                </a></li>
+            <li><a href="#" class="nav-link" data-screen="demands" id="nav-demands">
+                    <span class="nav-icon">📋</span><span>Demands</span>
+                </a></li>
+            <li><a href="#" class="nav-link" data-screen="employees" id="nav-employees">
+                    <span class="nav-icon">👥</span><span>Employees</span>
+                </a></li>
+            <li><a href="#" class="nav-link" data-screen="search" id="nav-search">
+                    <span class="nav-icon">🔍</span><span>Resource Search</span>
+                </a></li>
+            <li><a href="#" class="nav-link" data-screen="compare" id="nav-compare">
+                    <span class="nav-icon">⚖️</span><span>Compare</span>
+                </a></li>
+            <li><a href="#" class="nav-link" data-screen="approvals" id="nav-approvals">
+                    <span class="nav-icon">✅</span><span>Approvals</span>
+                </a></li>
+            <li><a href="#" class="nav-link" data-screen="ai-assistant" id="nav-ai">
+                    <span class="nav-icon">🤖</span><span>AI Assistant</span>
+                </a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <span class="user-role">System Admin</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <!-- Top bar -->
+        <header class="topbar">
+            <h1 class="page-title" id="page-title">Dashboard</h1>
+            <div class="topbar-actions">
+                <div class="status-dot" title="API Connected"></div>
+                <span class="status-text" id="api-status">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Screens -->
+        <div class="screen active" id="screen-dashboard">
+            <!-- Injected by dashboard.js -->
+        </div>
+        <div class="screen" id="screen-demands">
+            <!-- Injected by demands.js -->
+        </div>
+        <div class="screen" id="screen-employees">
+            <!-- Injected by employees.js -->
+        </div>
+        <div class="screen" id="screen-search">
+            <!-- Injected by search.js -->
+        </div>
+        <div class="screen" id="screen-compare">
+            <!-- Injected by compare.js -->
+        </div>
+        <div class="screen" id="screen-approvals">
+            <!-- Injected by approvals.js -->
+        </div>
+        <div class="screen" id="screen-ai-assistant">
+            <!-- Injected by ai-assistant.js -->
+        </div>
+    </main>
+
+    <!-- Toast notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loading-overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/demands.js"></script>
+    <script src="js/employees.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/compare.js"></script>
+    <script src="js/approvals.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

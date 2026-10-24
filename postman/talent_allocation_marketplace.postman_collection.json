@@ -1,0 +1,464 @@
+{
+  "info": {
+    "_postman_id": "8f56a31c-7b92-4f11-9a74-9d45e1289123",
+    "name": "Talent & Resource Allocation Marketplace API",
+    "description": "Comprehensive Postman Collection covering all endpoints, success flows, validation errors, conflict handling, and Agentic AI workflows for the Resource Allocation Prototype.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Project Demands",
+      "item": [
+        {
+          "name": "Create Demand - Success (TC-06-01)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectName\": \"Cloud Financial Platform\",\n  \"role\": \"Senior Backend Engineer\",\n  \"description\": \"Core payment gateway modernization\",\n  \"startDate\": \"2026-11-01\",\n  \"endDate\": \"2027-04-30\",\n  \"location\": \"San Francisco\",\n  \"allocationPercent\": 100,\n  \"priority\": \"HIGH\",\n  \"createdBy\": \"Staffing Manager\",\n  \"requiredSkills\": [\n    {\n      \"skillId\": 1,\n      \"minimumProficiency\": \"ADVANCED\",\n      \"mandatory\": true\n    },\n    {\n      \"skillId\": 2,\n      \"minimumProficiency\": \"INTERMEDIATE\",\n      \"mandatory\": true\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/demands",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands"]
+            }
+          }
+        },
+        {
+          "name": "Create Demand - Validation Failure: Missing Role (TC-06-02a)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectName\": \"Incomplete Project Requisition\",\n  \"role\": \"\",\n  \"startDate\": \"2026-11-01\",\n  \"endDate\": \"2027-04-30\",\n  \"allocationPercent\": 100\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/demands",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands"]
+            }
+          }
+        },
+        {
+          "name": "Create Demand - Business Failure: End Date Before Start Date (TC-06-02b)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectName\": \"Time Warp Project\",\n  \"role\": \"Developer\",\n  \"startDate\": \"2027-05-01\",\n  \"endDate\": \"2026-11-01\",\n  \"allocationPercent\": 100\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/demands",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands"]
+            }
+          }
+        },
+        {
+          "name": "Get All Demands (with status/skill/date filters)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/demands?status=OPEN",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands"],
+              "query": [
+                { "key": "status", "value": "OPEN" },
+                { "key": "skillId", "value": "1", "disabled": true },
+                { "key": "startDate", "value": "2026-11-01", "disabled": true },
+                { "key": "endDate", "value": "2027-05-01", "disabled": true }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Demand by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/demands/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Open Demands Ordered by Priority (SQL Task 1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/demands/open-by-priority",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands", "open-by-priority"]
+            }
+          }
+        },
+        {
+          "name": "Get Unallocated Demands (SQL Task 5)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/demands/unallocated",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands", "unallocated"]
+            }
+          }
+        },
+        {
+          "name": "Get Candidate Recommendations & Scoring (TC-06-03 & TC-06-04)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/demands/1/recommendations",
+              "host": ["{{baseUrl}}"],
+              "path": ["demands", "1", "recommendations"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Employees & Skills",
+      "item": [
+        {
+          "name": "Get All Employees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"]
+            }
+          }
+        },
+        {
+          "name": "Get Employee by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employeeCode\": \"EMP-999\",\n  \"name\": \"Sarah Connor\",\n  \"email\": \"sarah.connor@talentai.io\",\n  \"location\": \"Austin\",\n  \"department\": \"Cloud Architecture\",\n  \"seniorityLevel\": \"Lead\",\n  \"employmentStatus\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"]
+            }
+          }
+        },
+        {
+          "name": "Add Skill to Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"skillId\": 10,\n  \"proficiencyLevel\": \"EXPERT\",\n  \"yearsExperience\": 5.5,\n  \"certified\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/1/skills",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "1", "skills"]
+            }
+          }
+        },
+        {
+          "name": "Get Employee Skills",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/1/skills",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "1", "skills"]
+            }
+          }
+        },
+        {
+          "name": "Get All Skills Catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/skills",
+              "host": ["{{baseUrl}}"],
+              "path": ["skills"]
+            }
+          }
+        },
+        {
+          "name": "Create New Skill in Catalog",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rust Programming\",\n  \"category\": \"Programming\",\n  \"description\": \"Memory-safe systems programming language\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/skills",
+              "host": ["{{baseUrl}}"],
+              "path": ["skills"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Resource Search & Availability",
+      "item": [
+        {
+          "name": "Search Available Resources (SQL Task 3)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/resources/available?startDate=2026-11-01&endDate=2027-02-28&skillId=1&location=New%20York",
+              "host": ["{{baseUrl}}"],
+              "path": ["resources", "available"],
+              "query": [
+                { "key": "startDate", "value": "2026-11-01" },
+                { "key": "endDate", "value": "2027-02-28" },
+                { "key": "skillId", "value": "1" },
+                { "key": "location", "value": "New York" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Check Specific Employee Capacity (TC-06-06)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/resources/availability/1?startDate=2026-11-01&endDate=2027-02-28&requestedPercent=100",
+              "host": ["{{baseUrl}}"],
+              "path": ["resources", "availability", "1"],
+              "query": [
+                { "key": "startDate", "value": "2026-11-01" },
+                { "key": "endDate", "value": "2027-02-28" },
+                { "key": "requestedPercent", "value": "100" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Allocations & Lifecycle",
+      "item": [
+        {
+          "name": "Create Allocation - Success (TC-06-05 & TC-06-07)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employeeId\": 1,\n  \"demandId\": 1,\n  \"startDate\": \"2026-11-01\",\n  \"endDate\": \"2027-04-30\",\n  \"allocationPercent\": 50,\n  \"requestedBy\": \"Engineering Manager\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/allocations",
+              "host": ["{{baseUrl}}"],
+              "path": ["allocations"]
+            }
+          }
+        },
+        {
+          "name": "Create Allocation - Conflict Failure: Over Capacity (TC-06-08)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employeeId\": 1,\n  \"demandId\": 2,\n  \"startDate\": \"2026-11-01\",\n  \"endDate\": \"2027-04-30\",\n  \"allocationPercent\": 100,\n  \"requestedBy\": \"Staffing Lead\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/allocations",
+              "host": ["{{baseUrl}}"],
+              "path": ["allocations"]
+            }
+          }
+        },
+        {
+          "name": "Get All Allocations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/allocations",
+              "host": ["{{baseUrl}}"],
+              "path": ["allocations"]
+            }
+          }
+        },
+        {
+          "name": "Approve Allocation Commitment (TC-06-07)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approvedBy\": \"Director of Delivery\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/allocations/1/approve",
+              "host": ["{{baseUrl}}"],
+              "path": ["allocations", "1", "approve"]
+            }
+          }
+        },
+        {
+          "name": "Cancel Allocation & Release Capacity (TC-06-12)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cancelledBy\": \"Project Executive\",\n  \"cancellationReason\": \"Client paused initiative; capacity released back to pool\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/allocations/1/cancel",
+              "host": ["{{baseUrl}}"],
+              "path": ["allocations", "1", "cancel"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Reports & Analytics",
+      "item": [
+        {
+          "name": "Get Utilization Report (SQL Task 4)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reports/utilization?startDate=2026-11-01&endDate=2027-02-28",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports", "utilization"],
+              "query": [
+                { "key": "startDate", "value": "2026-11-01" },
+                { "key": "endDate", "value": "2027-02-28" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Skill Gap Report (SQL Task 6)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reports/skill-gaps",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports", "skill-gaps"]
+            }
+          }
+        },
+        {
+          "name": "Get Open Demands Report",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reports/open-demands",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports", "open-demands"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Agentic AI Staffing Assistant",
+      "item": [
+        {
+          "name": "Request AI Staffing Advice with 4 Tool Invocations (TC-06-09 & TC-06-10)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"demandId\": 1,\n  \"question\": \"Please recommend the most qualified backend engineer and highlight any training requirements.\",\n  \"requestedBy\": \"Resource Manager\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ai/staffing-advice",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "staffing-advice"]
+            }
+          }
+        },
+        {
+          "name": "Approve AI Recommendation with Commit Revalidation (TC-06-11)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approvalToken\": \"REPLACE_WITH_TOKEN_FROM_ADVICE_RESPONSE\",\n  \"demandId\": 1,\n  \"employeeId\": 1,\n  \"approvedBy\": \"Delivery Director\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ai/approve-allocation",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "approve-allocation"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
