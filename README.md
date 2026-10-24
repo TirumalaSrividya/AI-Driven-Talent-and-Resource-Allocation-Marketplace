@@ -219,7 +219,7 @@ The project uses synthetic seed data for employees, skills, demands, and related
 <img src="Screenshot 2026-10-24 165307.png" width="700" height = "700">
 
 **Resources Grouped by Skill and Proficiency**
-<img src="Screenshot 2026-10-24 012204.png" width="400" height = "700">
+<img src="Screenshot 2026-10-24 012204.png" width="700" height = "700">
 
 ---
 
