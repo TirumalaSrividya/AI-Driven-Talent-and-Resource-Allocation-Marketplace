@@ -135,13 +135,11 @@ A candidate missing a mandatory skill is not considered eligible.
 
 ### Allocation Capacity
 
-An employee cannot be allocated beyond **100% capacity** for overlapping allocation periods.
-
-Conflicting allocations are rejected by the backend business logic.
+- An employee cannot be allocated beyond **100% capacity** for overlapping allocation periods.
+- Conflicting allocations are rejected by the backend business logic.
 
 ### Candidate Scoring
-
-Candidate scores are calculated using four weighted factors:
+- Candidate scores are calculated using four weighted factors:
 
 ```text
 Score =
@@ -150,17 +148,13 @@ Score =
   + 15% Location Fit
   + 15% Experience
 ```
-
-The scoring factors are calculated from stored employee, skill, demand, and allocation data.
+- The scoring factors are calculated from stored employee, skill, demand, and allocation data.
 
 ### Approval
-
-Allocations use a pending/approval flow before becoming active.
-
-Capacity is rechecked when an allocation is approved.
+- Allocations use a pending/approval flow before becoming active.
+- Capacity is rechecked when an allocation is approved.
 
 ### Missing Data
-
 The AI workflow uses available stored information. Missing skill or availability information is reported rather than invented.
 
 ---
