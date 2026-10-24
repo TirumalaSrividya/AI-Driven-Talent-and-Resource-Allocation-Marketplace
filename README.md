@@ -65,17 +65,17 @@ MySQL Database
 
 ## 4. Key Features
 
-- **Demand Management** — Create and manage project demands with roles, dates, allocation percentage, priority, and location.
-- **Employee & Skill Management** — Maintain employee profiles and skill/proficiency information.
-- **Candidate Matching** — Identify candidates based on mandatory skills, proficiency, availability, location, and experience.
-- **Availability Checking** — Check employee capacity for a requested date range.
-- **Allocation Management** — Create, approve, and cancel allocations.
-- **Conflict Prevention** — Prevent allocations that exceed the configured capacity.
-- **Utilization Reporting** — View employee utilization and department-level information.
-- **Skill-Gap Reporting** — Identify gaps between required skills and available qualified resources.
-- **Skills Matrix** — Group active resources by skill and proficiency level.
-- **AI Staffing Assistant** — Provide evidence-based staffing recommendations and explanations.
-- **Training Recommendations** — Suggest learning actions for identified skill gaps.
+- **Demand Management** - Create and manage project demands with roles, dates, allocation percentage, priority, and location.
+- **Employee & Skill Management** - Maintain employee profiles and skill/proficiency information.
+- **Candidate Matching** - Identify candidates based on mandatory skills, proficiency, availability, location, and experience.
+- **Availability Checking** - Check employee capacity for a requested date range.
+- **Allocation Management** - Create, approve, and cancel allocations.
+- **Conflict Prevention** - Prevent allocations that exceed the configured capacity.
+- **Utilization Reporting** - View employee utilization and department-level information.
+- **Skill-Gap Reporting** - Identify gaps between required skills and available qualified resources.
+- **Skills Matrix** - Group active resources by skill and proficiency level.
+- **AI Staffing Assistant** - Provide evidence-based staffing recommendations and explanations.
+- **Training Recommendations** - Suggest learning actions for identified skill gaps.
 
 ---
 
