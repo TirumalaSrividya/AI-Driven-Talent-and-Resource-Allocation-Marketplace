@@ -1,6 +1,6 @@
 # AI-Driven Talent and Resource Allocation Marketplace
 
-A resource allocation platform that matches employees to project demands using verified skills, availability, location, and timeline constraints, assisted by a transparent Agentic AI staffing workflow.
+A resource allocation platform that matches employees to project demands using verified skills, availability, location, and timeline constraints, assisted by a transparent agentic AI staffing workflow.
 
 --- 
 
