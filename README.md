@@ -65,8 +65,6 @@ MySQL Database
 
 ## 4. Key Features
 
-## 4. Key Features
-
 - **Demand Management** — Create and manage project demands with roles, dates, allocation percentage, priority, and location.
 - **Employee & Skill Management** — Maintain employee profiles and skill/proficiency information.
 - **Candidate Matching** — Identify candidates based on mandatory skills, proficiency, availability, location, and experience.
